@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://btuyb7x5xqrtw"]
+
+[ext_resource type="Script" path="res://Dialogue/Dialogue.gd" id="1_uimu8"]
+[ext_resource type="Texture2D" uid="uid://7reimgb0yhns" path="res://sprites/cuadro de dialogo.png" id="2_yfolw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x78wu"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 736.0
+offset_bottom = 432.0
+script = ExtResource("1_uimu8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(0, 56)
+polygon = PackedVector2Array(40, 0, 704, 0, 704, 320, 120, 320, 40, 416, 64, 320, 40, 320)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(368, 312)
+scale = Vector2(1.41379, 1.83972)
+texture = ExtResource("2_yfolw")
+flip_h = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.648
+anchor_right = 0.5
+anchor_bottom = 0.648
+offset_left = -224.0
+offset_top = -127.936
+offset_right = 240.0
+offset_bottom = 128.064
+grow_horizontal = 2
+grow_vertical = 2
+text = "zzzzzzzzzzzz
+zzzzzzzzzzzzzzz"
+label_settings = SubResource("LabelSettings_x78wu")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 160

@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://bppukt5kya8r2"]
+
+[ext_resource type="Script" path="res://HandController/HandController.gd" id="1_eerrw"]
+[ext_resource type="Texture2D" uid="uid://dhj5lh0cwg83o" path="res://HandController/standard-key frame - grip - test.png" id="2_isvt2"]
+[ext_resource type="Texture2D" uid="uid://bax7qoir2w6wm" path="res://HandController/Forearm-key frame - grip - test.png" id="2_r2vte"]
+[ext_resource type="Texture2D" uid="uid://bm2uumv6rj2ad" path="res://HandController/SLAP -key frame - grip - test.png" id="3_at8ns"]
+[ext_resource type="Texture2D" uid="uid://cxla3hywff41i" path="res://HandController/anticipation SLAP -key frame - grip - test.png" id="5_1phxp"]
+[ext_resource type="Texture2D" uid="uid://bld534ftuifri" path="res://HandController/Second Forearm-key frame - grip - test.png" id="6_8tp2l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5jx5"]
+radius = 68.4471
+
+[sub_resource type="Animation" id="Animation_iiflo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("2_isvt2")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Antebrazo:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_r2vte")]
+}
+
+[sub_resource type="Animation" id="Animation_yuw2r"]
+resource_name = "slap"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_isvt2"), ExtResource("5_1phxp"), ExtResource("3_at8ns"), ExtResource("2_isvt2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(-24.695, 0), Vector2(-24.855, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Antebrazo:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_r2vte"), ExtResource("6_8tp2l"), ExtResource("2_r2vte")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7wsy"]
+_data = {
+"RESET": SubResource("Animation_iiflo"),
+"slap": SubResource("Animation_yuw2r")
+}
+
+[node name="HandController" type="CharacterBody2D"]
+script = ExtResource("1_eerrw")
+max_speed = 500
+acceleration = 400
+player2 = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -56)
+shape = SubResource("CircleShape2D_v5jx5")
+
+[node name="Antebrazo" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_r2vte")
+offset = Vector2(-55, 142)
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["hand"]]
+texture_filter = 1
+texture = ExtResource("2_isvt2")
+offset = Vector2(12, -70)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h7wsy")
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 54.99)
+target_position = Vector2(0, -150)
+collide_with_areas = true

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhjenvu1752ud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xf6vq"]
+size = Vector2(256, 298)
+
+[node name="DetectItem" type="Node2D"]
+
+[node name="Table" type="Area2D" parent="." groups=["table"]]
+position = Vector2(-8, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
+position = Vector2(0, 91)
+shape = SubResource("RectangleShape2D_xf6vq")
+
+[node name="Trash" type="Area2D" parent="." groups=["trash"]]
+position = Vector2(280, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash"]
+position = Vector2(0, 91)
+shape = SubResource("RectangleShape2D_xf6vq")

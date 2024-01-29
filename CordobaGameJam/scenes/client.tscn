@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1fpkuwpoi6he"]
+
+[ext_resource type="Script" path="res://scripts/Client.gd" id="1_2w0kf"]
+[ext_resource type="Texture2D" uid="uid://g82ygyihmcjn" path="res://sprites/bandeja.png" id="2_gqi4u"]
+[ext_resource type="LabelSettings" uid="uid://cfu64e2obe1w8" path="res://FONT.tres" id="3_a0r8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivkdq"]
+size = Vector2(256, 440)
+
+[node name="Client" type="Area2D"]
+script = ExtResource("1_2w0kf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(119, 374)
+texture = ExtResource("2_gqi4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(120, 370)
+shape = SubResource("RectangleShape2D_ivkdq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 40.0
+offset_top = 616.0
+offset_right = 210.0
+offset_bottom = 685.0
+text = "Puntos"
+label_settings = ExtResource("3_a0r8c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Points" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 685.0
+offset_right = 184.0
+offset_bottom = 754.0
+text = "0"
+label_settings = ExtResource("3_a0r8c")
+horizontal_alignment = 1
+vertical_alignment = 1

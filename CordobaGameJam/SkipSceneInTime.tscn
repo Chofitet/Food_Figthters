@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7icuuff2rqes"]
+
+[ext_resource type="Script" path="res://scripts/SkipScreenInTime.gd" id="1_c65ur"]
+
+[node name="Timer" type="Timer"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+script = ExtResource("1_c65ur")

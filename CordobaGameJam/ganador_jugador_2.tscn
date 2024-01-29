@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://rjam1kip87o1"]
+
+[ext_resource type="Texture2D" uid="uid://ri3o7d2mccdk" path="res://menu/GANADOR JUGADOR 2.png" id="1_iehti"]
+[ext_resource type="PackedScene" uid="uid://c7icuuff2rqes" path="res://SkipSceneInTime.tscn" id="2_ebnpx"]
+
+[node name="ganador_Jugador_2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.219608, 0.113725, 0.101961, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iehti")
+
+[node name="Timer" parent="." instance=ExtResource("2_ebnpx")]

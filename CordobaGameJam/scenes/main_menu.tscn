@@ -1,0 +1,171 @@
+[gd_scene load_steps=6 format=3 uid="uid://dabm5g22ekxv7"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_x4iri"]
+[ext_resource type="Texture2D" uid="uid://d13d1wgjf6rg1" path="res://menu/MENU.png" id="2_bchp6"]
+[ext_resource type="Texture2D" uid="uid://ddihdef124tqo" path="res://menu/CREDITOS.png" id="3_d6d5c"]
+[ext_resource type="Texture2D" uid="uid://bwuafeotpsquc" path="res://menu/tutorial pag. 1.png" id="3_qo6rx"]
+[ext_resource type="Texture2D" uid="uid://c5l7104f8o08b" path="res://menu/tutorial pag. 2.png" id="4_2v3ak"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x4iri")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bchp6")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Menu"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 312.0
+offset_right = 1256.0
+offset_bottom = 440.0
+mouse_default_cursor_shape = 2
+
+[node name="Tutorial" type="Button" parent="Menu"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 472.0
+offset_right = 1256.0
+offset_bottom = 600.0
+mouse_default_cursor_shape = 2
+
+[node name="Credit" type="Button" parent="Menu"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 632.0
+offset_right = 1256.0
+offset_bottom = 760.0
+mouse_default_cursor_shape = 2
+
+[node name="Exit" type="Button" parent="Menu"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 792.0
+offset_right = 1256.0
+offset_bottom = 920.0
+mouse_default_cursor_shape = 2
+
+[node name="Tutorial" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PaperOne" type="TextureRect" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qo6rx")
+
+[node name="PaperTwo" type="TextureRect" parent="Tutorial"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_2v3ak")
+
+[node name="Close" type="Button" parent="Tutorial"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.158
+anchor_bottom = 0.156
+offset_left = 144.0
+offset_top = 48.0
+offset_right = 8.63998
+offset_bottom = 7.51999
+mouse_default_cursor_shape = 2
+
+[node name="Back" type="Button" parent="Tutorial"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.208
+anchor_top = 0.067
+anchor_right = 0.3
+anchor_bottom = 0.163
+offset_left = 0.639984
+offset_top = -16.36
+offset_bottom = -0.0400085
+mouse_default_cursor_shape = 2
+
+[node name="Next" type="Button" parent="Tutorial"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.208
+anchor_top = 0.059
+anchor_right = 0.296
+anchor_bottom = 0.163
+offset_left = 0.639984
+offset_top = -7.72001
+offset_right = 7.67999
+offset_bottom = -0.0400085
+mouse_default_cursor_shape = 2
+
+[node name="Credit" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Credit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_d6d5c")
+
+[node name="Close" type="Button" parent="Credit"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.158
+anchor_bottom = 0.156
+offset_left = 144.0
+offset_top = 48.0
+offset_right = 8.63998
+offset_bottom = 7.51999
+mouse_default_cursor_shape = 2

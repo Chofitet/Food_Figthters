@@ -1,0 +1,206 @@
+[gd_scene load_steps=19 format=3 uid="uid://cwrfagv8rmuvh"]
+
+[ext_resource type="Texture2D" uid="uid://c4iuvh5mmppep" path="res://BG/BG- GAME.png" id="1_2ck5a"]
+[ext_resource type="PackedScene" uid="uid://c0wojk57arbk8" path="res://scenes/plate_spawn.tscn" id="2_3sb5w"]
+[ext_resource type="PackedScene" uid="uid://w6ft5w20lo10" path="res://scenes/detect.tscn" id="2_su44p"]
+[ext_resource type="PackedScene" uid="uid://bppukt5kya8r2" path="res://HandController/hand_controller.tscn" id="3_uhcn8"]
+[ext_resource type="PackedScene" uid="uid://c442bjc2hke08" path="res://ItemSpawner/item_spawner.tscn" id="6_a0w25"]
+[ext_resource type="Texture2D" uid="uid://c5wt5il32pl6j" path="res://sprites/props/comida/lechuga.png" id="7_i11en"]
+[ext_resource type="Texture2D" uid="uid://bb7ddw1hqpajl" path="res://sprites/props/comida/desodorante.png" id="8_45clb"]
+[ext_resource type="PackedScene" uid="uid://c1fpkuwpoi6he" path="res://scenes/client.tscn" id="8_i2f00"]
+[ext_resource type="PackedScene" uid="uid://do3tscnxuqyr2" path="res://Timer/timer.tscn" id="9_mos7h"]
+[ext_resource type="Texture2D" uid="uid://7usxd0ey4jyg" path="res://sprites/props/comida/Pichila.png" id="9_qvj4l"]
+[ext_resource type="Texture2D" uid="uid://wt12vaodkyuh" path="res://sprites/props/comida/pan -parte de abajo.png" id="9_ujdt0"]
+[ext_resource type="Texture2D" uid="uid://4s7jtrx853gs" path="res://sprites/props/comida/pollo.png" id="11_mn8iu"]
+[ext_resource type="Texture2D" uid="uid://cw2x0fs3o5la8" path="res://sprites/props/comida/Shit.png" id="12_as4ol"]
+[ext_resource type="Texture2D" uid="uid://n4mulf4d4lxv" path="res://sprites/props/comida/pan -parte de arriba.png" id="12_gx1n7"]
+[ext_resource type="Texture2D" uid="uid://cavwuyi114cyu" path="res://sprites/props/aderezos/picante.png" id="13_wnkci"]
+[ext_resource type="Texture2D" uid="uid://cjn3i2ptmypqt" path="res://sprites/props/comida/Hamburguesa.png" id="14_t6ydb"]
+[ext_resource type="Texture2D" uid="uid://ceay7qfkaugcf" path="res://sprites/props/comida/jamon.png" id="15_g7bwa"]
+[ext_resource type="PackedScene" uid="uid://btuyb7x5xqrtw" path="res://Dialogue/dialogue.tscn" id="16_cb3um"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2ck5a")
+
+[node name="Client2" parent="." groups=["client"] instance=ExtResource("8_i2f00")]
+position = Vector2(1640, 336)
+BaseLog = 2.0
+
+[node name="Client" parent="." groups=["client"] instance=ExtResource("8_i2f00")]
+position = Vector2(32, 320)
+BaseLog = 2.0
+
+[node name="PlateSpawn" parent="." instance=ExtResource("2_3sb5w")]
+position = Vector2(1176, 928)
+
+[node name="PlateSpawn2" parent="." instance=ExtResource("2_3sb5w")]
+position = Vector2(689, 928)
+
+[node name="Detect" parent="." instance=ExtResource("2_su44p")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 1080, 1920, 1080, 1920, 0, -8, 0, 0, 1072, -8, 1072, -16, -16, 1944, -16, 1936, 1096, -8, 1088)
+
+[node name="Timer" parent="." node_paths=PackedStringArray("client1", "client2") instance=ExtResource("9_mos7h")]
+layout_mode = 1
+client1 = NodePath("../Client")
+client2 = NodePath("../Client2")
+
+[node name="Spawners" type="Node2D" parent="."]
+position = Vector2(16, -8)
+
+[node name="ItemSpawner5" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(440, 328)
+ItemType = "bad"
+ItemSprite = ExtResource("12_as4ol")
+sfx = "fart"
+message = "qué rico chocolate! Que lo pruebe el otro!"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner6" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(1424, 328)
+ItemType = "bad"
+ItemSprite = ExtResource("13_wnkci")
+sfx = "katsup2"
+message = "Ensuciale el plato al otro!"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner7" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(656, 336)
+ItemType = "good"
+ItemSprite = ExtResource("14_t6ydb")
+sfx = "Soltar 1"
+message = "Ponele más cosas, no seas ortiva!"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner8" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+texture_filter = 1
+position = Vector2(1176, 336)
+ItemType = "good"
+ItemSprite = ExtResource("15_g7bwa")
+sfx = "Soltar 1"
+message = "Qué quilombo!"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner9" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(912, 336)
+ItemType = "good"
+ItemSprite = ExtResource("11_mn8iu")
+sfx = "Soltar 1"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner10" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(1176, 144)
+ItemType = "good"
+ItemSprite = ExtResource("12_gx1n7")
+sfx = "Soltar 1"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(912, 144)
+ItemType = "good"
+ItemSprite = ExtResource("7_i11en")
+sfx = "Soltar 1"
+message = "Qué aburrido, ¡tirale algo al otro!"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner2" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(656, 144)
+ItemType = "good"
+ItemSprite = ExtResource("9_ujdt0")
+sfx = "Soltar 1"
+message = "Rápido chabón, esto ya me tiene hasta las manos!"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner3" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(1424, 144)
+ItemType = "bad"
+ItemSprite = ExtResource("8_45clb")
+sfx = "spray"
+message = "Roxana, no te acompaña"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="ItemSpawner4" parent="Spawners" node_paths=PackedStringArray("Dialogue1", "Dialogue2") instance=ExtResource("6_a0w25")]
+position = Vector2(432, 145)
+ItemType = "bad"
+ItemSprite = ExtResource("9_qvj4l")
+sfx = "dildo"
+message = "mmm… qué gran…berenjena!"
+Dialogue1 = NodePath("../../Dialogue")
+Dialogue2 = NodePath("../../Dialogue2")
+
+[node name="Dialogue" parent="." instance=ExtResource("16_cb3um")]
+visible = false
+plate = "PlateSpawn2"
+
+[node name="Dialogue2" parent="." instance=ExtResource("16_cb3um")]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -736.0
+offset_right = 0.0
+grow_horizontal = 0
+plate = "PlateSpawn"
+
+[node name="Polygon2D" parent="Dialogue2" index="0"]
+scale = Vector2(-1, 1)
+offset = Vector2(-719.17, 0)
+
+[node name="Sprite2D" parent="Dialogue2" index="2"]
+flip_h = false
+
+[node name="HandController" parent="." instance=ExtResource("3_uhcn8")]
+z_index = 1
+texture_filter = 1
+position = Vector2(784, 768)
+collision_mask = 4
+max_speed = 600
+acceleration = 500
+player2 = false
+
+[node name="HandController2" parent="." instance=ExtResource("3_uhcn8")]
+modulate = Color(1, 0.662745, 0.278431, 1)
+z_index = 1
+texture_filter = 1
+position = Vector2(1136, 776)
+rotation = 3.14159
+scale = Vector2(1, -1)
+collision_mask = 4
+max_speed = 600
+acceleration = 500
+
+[connection signal="hit" from="HandController" to="HandController2" method="GetHit"]
+[connection signal="hit" from="HandController2" to="HandController" method="GetHit"]
+
+[editable path="Dialogue"]
+[editable path="Dialogue2"]
