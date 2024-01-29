@@ -44,13 +44,13 @@ BaseLog = 2.0
 position = Vector2(32, 320)
 BaseLog = 2.0
 
+[node name="Detect" parent="." instance=ExtResource("2_su44p")]
+
 [node name="PlateSpawn" parent="." instance=ExtResource("2_3sb5w")]
-position = Vector2(1176, 928)
+position = Vector2(1192, 896)
 
 [node name="PlateSpawn2" parent="." instance=ExtResource("2_3sb5w")]
-position = Vector2(689, 928)
-
-[node name="Detect" parent="." instance=ExtResource("2_su44p")]
+position = Vector2(688, 896)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4

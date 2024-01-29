@@ -1,17 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://w6ft5w20lo10"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lb82"]
-size = Vector2(928, 432)
+[gd_scene format=3 uid="uid://w6ft5w20lo10"]
 
 [node name="Detect" type="Node2D"]
 
-[node name="Table" type="Area2D" parent="." groups=["table"]]
-
-[node name="TableShape" type="CollisionShape2D" parent="Table"]
-position = Vector2(952, 808)
-shape = SubResource("RectangleShape2D_4lb82")
-
 [node name="Trash" type="Area2D" parent="." groups=["trash"]]
+collision_priority = 0.0
 
 [node name="TrashPolygon" type="CollisionPolygon2D" parent="Trash"]
 polygon = PackedVector2Array(312, 0, 1592, 0, 1600, 1040, 1424, 1040, 1416, 592, 488, 592, 480, 1040, 312, 1040)

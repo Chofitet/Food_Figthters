@@ -6,16 +6,20 @@ extends Node2D
 @export var Dialogue1 : Control
 @export var Dialogue2 : Control
 
-
 var instancia = load("res://scenes/item.tscn")
 var item
 
 func _ready():
 	InstanciateItem()
-	$Area2D.area_exited.connect(OutArea)
+	
+func _process(delta):
+	for i in get_children():
+		if i.position == Vector2.ZERO:
+			return
+		else:
+			InstanciateItem()
 
 func InstanciateItem():
-	print("exited")
 	if ItemType == "bad":
 		await get_tree().create_timer(randf_range(5,15)).timeout
 	var _item = instancia.instantiate()
@@ -25,6 +29,3 @@ func InstanciateItem():
 	Dialogue1.ConnectItem(_item)
 	Dialogue2.ConnectItem(_item)
 	
-func OutArea(x):
-	if x.is_in_group("item"):
-		InstanciateItem()

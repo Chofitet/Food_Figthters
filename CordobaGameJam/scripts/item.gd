@@ -34,10 +34,8 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("table"):
 		detect_table = false
-		print(detect_table)
 	if area.is_in_group("trash"):
 		detect_trash = false
-		print(detect_trash)
 	if area.is_in_group("plate"):
 		detect_plate = false
 		plate = null
@@ -52,7 +50,6 @@ func ConnectDrop(x):
 	x.Drop.connect(OnDrop)
 	
 func OnDrop(hand):
-	print(inGroup)
 	if inGroup == "trash" :
 		queue_free()
 	if inGroup == "plate":

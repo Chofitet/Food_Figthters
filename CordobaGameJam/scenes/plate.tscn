@@ -14,7 +14,7 @@ texture_filter = 1
 scale = Vector2(1.52381, 1.52381)
 texture = ExtResource("2_28tib")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["plate"]]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_e85ue")
 
